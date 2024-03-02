@@ -13,25 +13,60 @@
     <!-- CSS link up -->
     <link rel="stylesheet" href="styles/style.css">
 
+    <!-- Font Awesome set up -->
+    <script src="https://kit.fontawesome.com/add12b208e.js" crossorigin="anonymous"></script>
 
 </head>
 
-<body>
+<body class="font-mulish">
 
-    <header>
-        <nav>
-            
-        </nav>
-    </header>
+    <header class="container mx-auto">
+        <!-- nav bar -->
+        <div class="navbar bg-base-100">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <li class="tooltip  tooltip-bottom" data-tip = "Home"><a><i class="fa-solid fa-house"></i></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip = "Edit"><a><i class="fa-solid fa-pen"></i></li></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip="Add Friend"><a><i class="fa-solid fa-user-plus"></i></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip="Flag"=""><a><i class="fa-regular fa-flag"></i></a></li>
+                    </ul>
+                </div>
+                <a class="text-3xl font-extrabold">ReTro</a>
+            </div>
+            <div class="navbar-end">
+                <div class="hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1">
+                        <li class="tooltip  tooltip-bottom" data-tip = "Home"><a><i class="fa-solid fa-house"></i></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip = "Edit"><a><i class="fa-solid fa-pen"></i></li></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip="Add Friend"><a><i class="fa-solid fa-user-plus"></i></a></li>
+                        <li class="tooltip  tooltip-bottom" data-tip="Flag"=""><a><i class="fa-regular fa-flag"></i></a></li>
+                    </ul>
+                </div>
+                <button class="bg-[#797DFC] rounded-full text-white font-bold px-6 py-2">Sign In</button>
+            </div>
+        </div>
 
-    <main>
+        <!-- banner section -->
+        
+    </header>   
+
+    <main>  
 
     </main>
 
     <footer>
 
     </footer>
-    
+
     <!-- Js link up -->
     <script src="js/index.js"></script>
 </body>
