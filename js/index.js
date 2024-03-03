@@ -140,9 +140,13 @@ const loadingPost = (isLoad) =>{
     else loader.classList.add('hidden');
 }
 
+function delay(){
+    loadAllPost(true);
+}
+
 const searchPost = (isSearch) => {
     loadingPost(isSearch);
-    loadAllPost(isSearch);
+    setTimeout(delay, 2000);
 }
 
 loadAllPost(false);
