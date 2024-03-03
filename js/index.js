@@ -38,6 +38,7 @@ const loadLatestPost = async () => {
 }
 
 
+let postsContainer = [];
 
 const loadAllPost = async() => {
     const res = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
@@ -48,10 +49,11 @@ const loadAllPost = async() => {
     const allPostContainer = document.getElementById('all-post-container');
     posts.forEach(post => {
         console.log(post);
+        postsContainer.push(post);
         div = document.createElement('div');
-        div.classList = "card w-full bg-base-100 shadow-xl";
+        div.classList = "card w-full bg-base-100 shadow-sm";
         div.innerHTML = `
-        <div class="card-body bg-[#797DFC19]">
+        <div class="card-body bg-[#797DFC19] rounded-3xl">
             <div class="flex flex-col md:flex-row gap-4">
                     <div class="relative">
                         <img class=" w-14 h-14 rounded-full" src="${post.image}" alt="">
@@ -69,7 +71,7 @@ const loadAllPost = async() => {
                                 <p><i class="fa-regular fa-clock"></i> ${post.posted_time}</p>
                             </div>
                             <div class="">
-                                <p onClick = "addReadPost('${post.title}','${post.view_count}')"><i class="fa-solid fa-envelope-open"></i></p>
+                                <a onClick = "addReadPost(${post.id})" class="cursor-pointer"><i class="fa-solid fa-envelope-open"></i></a>
                             </div>
                         </div>
                     </div>
@@ -82,29 +84,35 @@ const loadAllPost = async() => {
 };
 
 let cnt = 0;
-const addReadPost = (postTitle, postView) => {
-    console.log(postTitle, postView);
+const addReadPost = (postID) => {
+    console.log(postID);
     ++cnt;
     const readCount = document.getElementById('read-count');
     readCount.innerText = cnt;
     const readPost = document.getElementById('read-post');
     const div = document.createElement('div');
     div.classList = "card w-full bg-white";
-    div.innerHTML =   `
-        <div class="card-body">
-            <div class = "flex justify-between">
-                <div>
-                    <p>${postTitle}</p>
+    for(const post of postsContainer){
+        console.log(post);
+        if(post.id === postID){
+            div.innerHTML =   `
+                <div class="card-body">
+                    <div class = "flex justify-between">
+                        <div>
+                            <p>${post.title}</p>
+                        </div>
+        
+                        <div>
+                             <p><i class="fa-regular fa-eye"></i> ${post.view_count}</p>
+                        </div>
+                    
+                    </div>
                 </div>
-
-                <div>
-                     <p><i class="fa-regular fa-eye"></i> ${postView}</p>
-                </div>
-            
-            </div>
-        </div>
-    `;
-    readPost.appendChild(div);
+            `;
+            readPost.appendChild(div);
+            break;
+        }
+    }
 };
 
 
