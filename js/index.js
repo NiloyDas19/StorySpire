@@ -40,13 +40,30 @@ const loadLatestPost = async () => {
 
 let postsContainer = [];
 
-const loadAllPost = async() => {
-    const res = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+const loadAllPost = async(isSearch) => {
+    let res = await fetch("https://openapi.programming-hero.com/api/retro-forum/posts");
+    if(isSearch){
+        const searchInputField = document.getElementById('search-input-field');
+        res = await fetch(`https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchInputField.value}`)
+    }
     const data = await res.json();
     const posts = data.posts;
-    // console.log(posts);
+    console.log(posts);
 
     const allPostContainer = document.getElementById('all-post-container');
+    allPostContainer.textContent = '';
+
+
+    if(posts.length === 0){
+        const div = document.createElement('div');
+        div.innerHTML = `
+            <p class ="text-center text-3xl font-semibold">${data.message}</p>
+        `;
+        allPostContainer.appendChild(div);
+        return;
+    }
+
+
     posts.forEach(post => {
         console.log(post);
         postsContainer.push(post);
@@ -116,5 +133,9 @@ const addReadPost = (postID) => {
 };
 
 
-loadAllPost();
+const searchPost = (isSearch) => {
+    loadAllPost(isSearch);
+}
+
+loadAllPost(false);
 loadLatestPost();
