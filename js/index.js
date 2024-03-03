@@ -48,13 +48,14 @@ const loadAllPost = async(isSearch) => {
     }
     const data = await res.json();
     const posts = data.posts;
-    console.log(posts);
+    // console.log(posts);
 
     const allPostContainer = document.getElementById('all-post-container');
     allPostContainer.textContent = '';
 
 
     if(posts.length === 0){
+        loadingPost(false);
         const div = document.createElement('div');
         div.innerHTML = `
             <p class ="text-center text-3xl font-semibold">${data.message}</p>
@@ -98,6 +99,7 @@ const loadAllPost = async(isSearch) => {
         `;
         allPostContainer.appendChild(div);
     });
+    if(isSearch) loadingPost(false);
 };
 
 let cnt = 0;
@@ -132,8 +134,14 @@ const addReadPost = (postID) => {
     }
 };
 
+const loadingPost = (isLoad) =>{
+    const loader = document.getElementById('loader');
+    if(isLoad) loader.classList.remove('hidden');
+    else loader.classList.add('hidden');
+}
 
 const searchPost = (isSearch) => {
+    loadingPost(isSearch);
     loadAllPost(isSearch);
 }
 
