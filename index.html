@@ -74,10 +74,10 @@
                     <p>
                         Share your favorite opinion and win and wp <br>forum coffee mug!
                     </p>
-                    <label class="input input-bordered flex items-center gap-2 rounded-full">
+                    <!-- <label class="input input-bordered flex items-center gap-2 rounded-full">
                         <input type="text" class="grow" placeholder="Search Here Anything" />
                         <button class="bg-[#797DFC] rounded-full text-white font-bold px-6 py-2">search</button>
-                    </label>
+                    </label> -->
                 </div>
                 <div class="">
                     <div class="card w-full bg-base-100 shadow-xl mt-4 text-center">
@@ -97,9 +97,37 @@
         </div>
     </header>
 
-    <main class="container mx-auto mt-8">
+    <main class="container mx-auto space-y-8 mt-8">
+        <!-- Let's discuss section -->
+        <div class="space-y-5">
+            <div class="text-center">
+                <h2 class="text-5xl font-extrabold">Let’s Discuss</h2>
+                <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing
+                    features allow for a streamlined .</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <!-- All post container -->
+                <div class="space-y-5" id="all-post-container">
 
-        
+                </div>
+
+                <!-- Mark as read post -->
+                <div>
+                    <div class="card w-full  bg-[#797DFC19] shadow-xl">
+                        <div class="flex justify-between p-5">
+                            <p class="font-bold text-xl">Title</p>
+                            <p>
+                                <i class="fa-solid fa-check-double"></i>
+                                Mark as read (<span>0</span>)
+                            </p>
+                        </div>
+                        <div class="p-5 space-y-5" id="read-post">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- JOIN OUR FORUM SECTION -->
         <div class="bg-[#12132D] rounded-3xl p-16">
@@ -119,7 +147,7 @@
         </div>
 
         <!-- Latest Posts Section -->
-        <section class="mt-8">
+        <section class="">
             <div class="text-center">
                 <h2 class="text-5xl font-extrabold">Latest Posts</h2>
                 <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing
@@ -127,7 +155,7 @@
                     allow for a streamlined .</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="latest-post-container">
-                
+
             </div>
         </section>
 
