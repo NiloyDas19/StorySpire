@@ -81,8 +81,12 @@ const loadAllPost = async() => {
     });
 };
 
+let cnt = 0;
 const addReadPost = (postTitle, postView) => {
     console.log(postTitle, postView);
+    ++cnt;
+    const readCount = document.getElementById('read-count');
+    readCount.innerText = cnt;
     const readPost = document.getElementById('read-post');
     const div = document.createElement('div');
     div.classList = "card w-full bg-white";
