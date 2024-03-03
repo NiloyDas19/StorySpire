@@ -78,9 +78,9 @@ const loadAllPost = async(isSearch) => {
                         <span class="top-0 left-10 absolute  w-3.5 h-3.5 ${post.isActive ? 'bg-green-400' : 'bg-red-400'} border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                     <div class = "w-full space-y-5">
-                        <p>#${post.category} Author: ${post.author.name}</p>
+                        <p class = "font-inter text-light">#${post.category} Author: ${post.author.name}</p>
                         <h2 class="card-title">${post.title}</h2>
-                        <p>${post.description}</p>
+                        <p class = "font-inter text-light">${post.description}</p>
                         <hr class ="border-1 border-dashed border-blue-300">
                         <div class="flex justify-between">
                             <div class="flex gap-5"> 
