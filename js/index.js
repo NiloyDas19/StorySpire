@@ -8,7 +8,7 @@ const loadLatestPost = async () => {
     data.forEach(latestPost => {
         // console.log(latestPost);
         const div = document.createElement('div');
-        const divClass = "card w-full bg-base-100 shadow-xl";
+        const divClass = "card w-full bg-base-100 shadow-xl border-2 border-gray-300";
         div.classList = divClass;
         div.innerHTML = `
         <figure class="px-10 pt-10">
@@ -80,15 +80,15 @@ const loadAllPost = async(isSearch) => {
                         <p>#${post.category} Author: ${post.author.name}</p>
                         <h2 class="card-title">${post.title}</h2>
                         <p>${post.description}</p>
-                        <hr>
+                        <hr class ="border-1 border-dashed border-blue-300">
                         <div class="flex justify-between">
                             <div class="flex gap-5"> 
-                                <p><i class="fa-solid fa-message"></i> ${post.comment_count}</p>
+                                <p><i class="fa-regular fa-message"></i> ${post.comment_count}</p>
                                 <p><i class="fa-regular fa-eye"></i> ${post.view_count}</p>
                                 <p><i class="fa-regular fa-clock"></i> ${post.posted_time}</p>
                             </div>
-                            <div class="">
-                                <a onClick = "addReadPost(${post.id})" class="cursor-pointer"><i class="fa-solid fa-envelope-open"></i></a>
+                            <div class="rounded-full bg-green-600 w-10 h-10 flex items-center justify-center">
+                                <a onClick = "addReadPost(${post.id})" class="cursor-pointer"><i class="fa-solid fa-envelope-open text-white"></i></a>
                             </div>
                         </div>
                     </div>
