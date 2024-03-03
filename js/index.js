@@ -118,7 +118,7 @@ const addReadPost = (postID) => {
                 <div class="card-body">
                     <div class = "flex justify-between">
                         <div>
-                            <p>${post.title}</p>
+                            <p class = "text-xl font-semibold">${post.title}</p>
                         </div>
         
                         <div>
@@ -146,6 +146,8 @@ function delay(){
 
 const searchPost = (isSearch) => {
     loadingPost(isSearch);
+    const allPostContainer = document.getElementById('all-post-container');
+    allPostContainer.textContent = '';
     setTimeout(delay, 2000);
 }
 
