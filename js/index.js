@@ -75,7 +75,7 @@ const loadAllPost = async(isSearch) => {
             <div class="flex flex-col md:flex-row gap-4">
                     <div class="relative">
                         <img class=" w-14 h-14 rounded-full" src="${post.image}" alt="">
-                        <span class="top-0 left-10 absolute  w-3.5 h-3.5 ${post.isActive ? 'bg-green-400' : 'bg-red-400'} border-2 border-white dark:border-gray-800 rounded-full"></span>
+                        <span class="top-0 left-10 absolute  w-3.5 h-3.5 ${post.isActive ? 'bg-green-400' : 'bg-red-500'} border-2 border-white dark:border-gray-800 rounded-full"></span>
                     </div>
                     <div class = "w-full space-y-5">
                         <p class = "font-inter text-light">#${post.category} Author: ${post.author.name}</p>
@@ -99,7 +99,7 @@ const loadAllPost = async(isSearch) => {
         `;
         allPostContainer.appendChild(div);
     });
-    if(isSearch) loadingPost(false);
+    loadingPost(false);
 };
 
 let cnt = 0;
@@ -140,16 +140,21 @@ const loadingPost = (isLoad) =>{
     else loader.classList.add('hidden');
 }
 
-function delay(){
+function delay1(){
     loadAllPost(true);
+}
+
+function delay2(){
+    loadAllPost(false);
 }
 
 const searchPost = (isSearch) => {
     loadingPost(isSearch);
     const allPostContainer = document.getElementById('all-post-container');
     allPostContainer.textContent = '';
-    setTimeout(delay, 2000);
+    setTimeout(delay1, 2000);
 }
 
-loadAllPost(false);
+loadingPost(true);
+setTimeout(delay2, 2000);
 loadLatestPost();
